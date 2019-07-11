@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="shortcut icon" href="pic/Logo/logontu.jpg" />
+    <meta charset="UTF-8"/>
+	<title>Ký túc xá trường ĐH Nha Trang</title>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"> -->
+	<!-- Link fontawesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"/>
+    <!-- Link css index -->
+    <link rel="stylesheet" href="css/index.css"/>
+	<!-- Link css gioi thieu dich vu -->
+	<link rel="stylesheet" href="css/gioithieudichvu.css"/>	
+	<!-- Link css gioithieukhu -->
+    <link rel="stylesheet" href="css/gioithieukhu.css"/>
+	<link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
+
+	<!-- Link css của giới thiệu lợi ích -->
+	<link rel="stylesheet" href="css/gioithieuloiich.css"/>
+	<!-- Link css của địa điểm gần -->
+	<link rel="stylesheet" href="css/diadiemgan.css"/>
+	<!-- Link css của nhân viên -->
+	<link rel="stylesheet" href="css/nhanvien.css"/>
+	<link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
+    <!-- css cho trang xem phòng -->
+    <link href="css/trangchuxemphong.css" rel="stylesheet" />
+    <!-- css cho chi tiết 1 phòng -->
+    <link href="css/chitietphong.css" rel="stylesheet" />
+    <!-- css cho form thông tin sinh viên khi đặt phòng -->
+    <link href="css/thongtindatphong.css" rel="stylesheet" />
+    <!-- css cho trang chủ tin tức -->
+    <link href="css/trangchutintuc.css" rel="stylesheet" />
+    <!-- css cho trang chi tiết tin tức -->
+    <link href="css/chitiettin.css" rel="stylesheet" />
+	<!-- css cho div chứa gg map -->
+	<style>
+		#map {
+			height: 570px;
+		}
+	</style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    	<!-- Header -->
+	<div class="header-container">
+		<div class="header" style="width: 960px;">
+			<div class="logo">
+                <img src="pic/logontu.jpg">
+			</div>
+			<div class="caption">
+				<h2>HỆ THỐNG QUẢN LÝ KÝ TÚC XÁ</h2>
+				<h3>TRƯỜNG ĐẠI HỌC NHA TRANG</h3>
+				<h5>Địa chỉ: 02 Nguyễn Đình Chiểu - Nha Trang - Khánh Hoà / Điện thoại: 0123456789</h5>
+				<h5 id="toDay"></h5>
+			</div>
+			<div class="menu-right">
+				<ul>
+					<li><a href="#">NTU</a></li>
+					<li><a href="#">Cán bộ & Quản lý</a></li>
+					<li><a href="#">Sinh viên</a></li>
+					<li><a href="#">Liên hệ</a></li>
+					<li><a href="#">Tham quan</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Menu ngang -->
+	<div id="sticky-menu" class="menu-ngang">
+		<ul>
+			<li><a href="#" class="home-icon"><i class="fas fa-home"></i></a></li>
+			<li><a href="#">Xem phòng</a></li>
+			<li><a href="#khu">Các khu</a></li>
+			<li><a href="#dichvu">Dịch vụ</a></li>
+			<li><a href="#loiich">Lợi ích</a></li>
+			<li><a href="#diadiem">Địa điểm</a></li>
+			<li><a href="#nhanvien">Nhân viên</a></li>
+			<li><a href="#map">Bản đồ</a></li>
+			<li><a href="#">TIn tức</a></li>
+			<li><a href="#">Hướng dẫn</a></li>
+			<li><a href="#">FAQ</a></li>
+		</ul>
+	</div>
+
+	<!-- Slideshow container -->
+	<div class="slideshow-container" id="slideshow" runat="server" style="overflow: hidden;">
+		<div class="mySlides fade">
+			<img src="pic/slide1.jpg" />
+			<div class="text">
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<div class="slide-caption">Welcom to Nha Trang University</div>
+				<div class="sub-caption" style="font-size: 25px; margin-bottom: 5%;">Trang web dành cho sinh viên đăng ký ở nội trú trong ký túc xá của trường</div>
+				<div class="get-start"><a href="#">Khám phá ngay</a></div>
+			</div>
+		</div>
+		<div class="mySlides fade">
+			<img src="pic/slide2.jpg" />
+			<div class="text">
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<div class="slide-caption">Welcom to Nha Trang University</div>
+				<div class="sub-caption" style="font-size: 25px; margin-bottom: 5%;">Trang web dành cho sinh viên đăng ký ở nội trú trong ký túc xá của trường</div>
+				<div class="get-start"><a href="#">Khám phá ngay</a></div>
+			</div>
+		</div>
+		<div class="mySlides fade">			
+			<img src="pic/slide3.jpg" />
+			<div class="text">
+				<div class="star">
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+					<i class="fas fa-star"></i>
+				</div>
+				<div class="slide-caption">Welcom to Nha Trang University</div>
+				<div class="sub-caption" style="font-size: 25px; margin-bottom: 5%;">Trang web dành cho sinh viên đăng ký ở nội trú trong ký túc xá của trường</div>
+				<div class="get-start"><a href="#">Khám phá ngay</a></div>
+			</div>
+		</div>
+
+		<!-- btn next vs prev -->
+		<a class="prev btn" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next btn" onclick="plusSlides(1)">&#10095;</a>
+		<!-- dots -->
+		<div class="dots-container" style="text-align:center">
+			<span class="dot" onclick="currentSlide(1)"></span> 
+			<span class="dot" onclick="currentSlide(2)"></span> 
+			<span class="dot" onclick="currentSlide(3)"></span> 
+		</div>
+        
+	</div>
+	
+	<!-- Slide gioi thieu các khu -->
+	<div class="gioithieukhu" id="khu">
+		<div class="title">
+			<h2><span style="color: #b58e3e">CÁC KHU</span> KÝ TÚC XÁ TRONG TRƯỜNG</h2>
+			<p>Trường có nhiều khu ký túc xá cung cấp nơi ở cho khoảng 5600 sinh viên</p>
+			<a href="Default.aspx?module=XemPhong" class="viewall">Xem thêm</a>
+		</div>
+
+		<div class="gioithieukhu-slider">
+			<div class="slide-item">				
+				<div class="item-container">
+					<div class="img-container">
+						<img src="pic/K1.JPG" />
+					</div>
+					<div class="info">
+						<div class="detail">
+							<h3 style="color: #b58e3e;">Ký túc xá K1</h3>
+							<p style="font-size: 15px; margin: 3% 0 10% 0;">Dành cho công nhân viên</p>
+							<a href="Default.aspx?module=XemPhong&modulephu=DanhSachPhong&id=K1">Đặt phòng</a>
+						</div>
+						<div class="price">
+							<span style="font-size: 21px;">1.000.000đ</span>
+							<span style="font-size: 14px;">1 sv / 10 tháng</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="slide-item">				
+				<div class="item-container">
+					<div class="img-container">
+                        <img src="pic/K2.JPG" />
+					</div>
+					<div class="info">
+						<div class="detail">
+							<h3 style="color: #b58e3e;">Ký túc xá K2</h3>
+							<p style="font-size: 15px; margin: 3% 0 10% 0;">Dành cho sinh viên nữ</p>
+							<a href="Default.aspx?module=XemPhong&modulephu=DanhSachPhong&id=K2">Đặt phòng</a>
+						</div>
+						<div class="price">
+							<span style="font-size: 21px;">1.000.000đ</span>
+							<span style="font-size: 14px;">1 sv / 10 tháng</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="slide-item">				
+				<div class="item-container">
+					<div class="img-container">
+                        <img src="pic/K3.JPG" />
+					</div>
+					<div class="info">
+						<div class="detail">
+							<h3 style="color: #b58e3e;">Ký túc xá K3</h3>
+							<p style="font-size: 15px; margin: 3% 0 10% 0;">Dành cho sinh viên nam</p>
+							<a href="Default.aspx?module=XemPhong&modulephu=DanhSachPhong&id=K3">Đặt phòng</a>
+						</div>
+						<div class="price">
+							<span style="font-size: 21px;">1.000.000đ</span>
+							<span style="font-size: 14px;">1 sv / 10 tháng</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="slide-item">				
+				<div class="item-container">
+					<div class="img-container">
+                        <img src="pic/K4.jpg" />
+					</div>
+					<div class="info">
+						<div class="detail">
+							<h3 style="color: #b58e3e;">Ký túc xá K4</h3>
+							<p style="font-size: 15px; margin: 3% 0 10% 0;">Dành cho sinh viên nữ</p>
+							<a href="Default.aspx?module=XemPhong&modulephu=DanhSachPhong&id=K4">Đặt phòng</a>
+						</div>
+						<div class="price">
+							<span style="font-size: 21px;">1.000.000đ</span>
+							<span style="font-size: 14px;">1 sv / 10 tháng</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="slide-item">				
+				<div class="item-container">
+					<div class="img-container">
+                        <img src="pic/K5.JPG" />
+					</div>
+					<div class="info">
+						<div class="detail">
+							<h3 style="color: #b58e3e;">Ký túc xá K5</h3>
+							<p style="font-size: 15px; margin: 3% 0 10% 0;">Dành cho sinh viên nam</p>
+							<a href="Default.aspx?module=XemPhong&modulephu=DanhSachPhong&id=K5">Đặt phòng</a>
+						</div>
+						<div class="price">
+							<span style="font-size: 21px;">1.000.000đ</span>
+							<span style="font-size: 14px;">1 sv / 10 tháng</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+            <div class="slide-item">				
+				<div class="item-container">
+					<div class="img-container">
+                        <img src="pic/K6.JPG" />
+					</div>
+					<div class="info">
+						<div class="detail">
+							<h3 style="color: #b58e3e;">Ký túc xá K6</h3>
+							<p style="font-size: 15px; margin: 3% 0 10% 0;">Dành cho sinh viên nữ</p>
+							<a href="Default.aspx?module=XemPhong&modulephu=DanhSachPhong&id=K6">Đặt phòng</a>
+						</div>
+						<div class="price">
+							<span style="font-size: 21px;">1.000.000đ</span>
+							<span style="font-size: 14px;">1 sv / 10 tháng</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+            <div class="slide-item">				
+				<div class="item-container">
+					<div class="img-container">
+                        <img src="pic/K7.JPG" />
+					</div>
+					<div class="info">
+						<div class="detail">
+							<h3 style="color: #b58e3e;">Ký túc xá K7</h3>
+							<p style="font-size: 15px; margin: 3% 0 10% 0;">Dành cho sinh viên nam</p>
+							<a href="Default.aspx?module=XemPhong&modulephu=DanhSachPhong&id=K7">Đặt phòng</a>
+						</div>
+						<div class="price">
+							<span style="font-size: 21px;">1.000.000đ</span>
+							<span style="font-size: 14px;">1 sv / 10 tháng</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+            <div class="slide-item">				
+				<div class="item-container">
+					<div class="img-container">
+                        <img src="pic/K8.JPG" />
+					</div>
+					<div class="info">
+						<div class="detail">
+							<h3 style="color: #b58e3e;">Ký túc xá K8</h3>
+							<p style="font-size: 15px; margin: 3% 0 10% 0;">Dành cho sinh viên nữ</p>
+							<a href="Default.aspx?module=XemPhong&modulephu=DanhSachPhong&id=K8">Đặt phòng</a>
+						</div>
+						<div class="price">
+							<span style="font-size: 21px;">1.000.000đ</span>
+							<span style="font-size: 14px;">1 sv / 10 tháng</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="layout"></div>
+	</div>
+
+	<!-- Giới thiệu dịch vụ của nơi ở -->
+	<div class="gioithieudichvu" id="dichvu">
+		<div class="title" style="width: 1300px; padding: 0px 15px 40px 15px;">
+			<h2><span style="color: #b58e3e">DỊCH VỤ </span> CỦA NƠI Ở</h2>
+			<p>Ký túc xá cung cấp nhiều loại hình dịch vụ cho sinh viên</p>
+			<a href="/Default.aspx?module=TinTuc&modulephu=ChiTietTin&id=24" class="viewall">Xem thêm</a>
+		</div>
+		<div class="dichvu-container">
+
+			<div class="spa item" style="background: url('pic/internet.jpg');">
+				<div class="info">
+					<div style="font-size: 21px;">Mạng internet</div>
+					<p class="info-detail">Cung cấp mạng cáp quang và wifi</p>
+				</div>
+				<div class="layout">Mạng internet</div>
+			</div>
+
+			<div class="gym item" style="background: url('pic/giuxe.jpg');">
+				
+				<div class="info">
+					<div style="font-size: 21px;">Giữ xe</div>
+					<p class="info-detail">Nhà giữ xe rộng rãi, thoáng mát, đảm bảo an toàn</p>
+				</div>
+				<div class="layout">Giữ xe</div>
+			</div>
+
+			<div class="fitness item" style="background: url('pic/giatgiu.jpg');">
+				
+				<div class="info">
+					<div style="font-size: 21px;">Giặt là</div>
+					<p class="info-detail">Cung cấp dịch vụ giặt giũ quần áo, chăn mền</p>
+				</div>
+				<div class="layout">Giặt là</div>
+			</div>
+
+			<div class="beauty item" style="background: url('pic/comsuon.jpg');">
+
+				<div class="info">
+					<div style="font-size: 21px;">Phục vụ cơm</div>
+					<p class="info-detail">Các căn tin gần nơi ở phục vụ cơm 3 bữa</p>
+				</div>
+				<div class="layout">Phục vụ cơm</div>
+			</div>
+
+			<div class="more">
+				<h1 style="font-size: 50px; font-weight: 100;">+</h1>
+				<a href="/Default.aspx?module=TinTuc&modulephu=ChiTietTin&id=24" class="layout-more">Show more</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Giới thiệu lợi ích khi ở nội trú -->
+	<div class="gioithieuloiich-container" id="loiich">
+		<div class="title">
+			<h2><span style="color: #b58e3e">Lợi ích</span> khi ở nội trú</h2>
+			<p>Những thuận lợi khi ở nội trú</p>
+			<a href="/Default.aspx?module=TinTuc&modulephu=ChiTietTin&id=25" class="viewall">Xem thêm</a>
+		</div>
+
+		<div class="loiich-container">
+			<div class="items">
+				<div class="image">
+					<img src="pic/phongo.jpg" alt="">
+				</div>
+				<div class="text">
+					<div class="time">
+						<span>31</span>
+						<span style="font-size: 22px;">03</span>
+						<span>2019</span>
+					</div>
+					<div class="info">Phòng ở rộng rãi, sạch sẽ, thoáng mát </div>
+				</div>
+			</div>
+			<div class="items">
+				<div class="image">
+					<img src="pic/tietkiem.jpg" alt="">
+				</div>
+				<div class="text">
+					<div class="time">
+						<span>31</span>
+						<span style="font-size: 22px;">03</span>
+						<span>2019</span>
+					</div>
+					<div class="info">Chi phí phòng ở phù hợp với sinh viên</div>
+				</div>
+			</div>
+			<div class="items">
+				<div class="image">
+					<img src="pic/giangduong.jpg" alt="">
+				</div>
+				<div class="text">
+					<div class="time">
+						<span>31</span>
+						<span style="font-size: 22px;">03</span>
+						<span>2019</span>
+					</div>
+					<div class="info">Gần các khu giảng đường, đi lại thuận tiện</div>
+				</div>
+			</div>
+		</div>
+		<div class="layout"></div>
+	</div>
+
+	<!-- Các địa điểm gần nơi ở -->
+	<div class="diadiemgan-container" id="diadiem">
+		<div class="title">
+			<h2><span style="color: #b58e3e">Các điểm gần</span> nơi ở</h2>
+			<p>Khu vực nội trú có vị trí toạ lạc đẹp, gần các bãi biển đẹp, gần các khu giảng đường và trung tâm thành phố</p>
+			<a href="/Default.aspx?module=TinTuc&modulephu=ChiTietTin&id=23" class="viewall">Xem thêm</a>
+		</div>
+
+		<div class="cacdiadiem-container">
+			<div class="row1 row">
+				<div class="col1-row1 col" style="">
+					<div class="img-container">
+						<img src="pic/biennhatrang.jpg" alt="">
+					</div>
+					<div class="title-btn">BÃI BIỂN ĐẸP</div>
+					<div class="layout"></div>
+				</div>
+				<div class="col2-row1 col">
+					<div class="img-container">
+						<img src="pic/thapba.jpg" alt="">
+					</div>
+					
+					<div class="title-btn">THÁP BÀ PONAGAR</div>
+					<div class="layout"></div>
+				</div>
+			</div>
+
+			<div class="row2 row">
+				<div class="col-row2 col">
+					<div class="img-container">
+						<img src="pic/vinpearl.png" alt="">
+					</div>
+					
+					<div class="title-btn">Vinpearl land</div>
+					<div class="layout"></div>
+				</div>
+				<div class="col-row2 col">
+					<div class="img-container">
+						<img src="pic/trungtam.jpg" alt="">
+					</div>
+					
+					<div class="title-btn">Trung tâm thành phố</div>
+					<div class="layout"></div>
+				</div>
+				<div class="col-row2 col">
+					<div class="img-container">
+						<img src="pic/nhatrangdem.jpg" alt="">
+					</div>
+					
+					<div class="title-btn">Nha trang về đêm</div>
+					<div class="layout"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Nhân viên -->
+	<div class="nhanvien-container" id="nhanvien">
+		<div class="title">
+			<h2><span style="color: #b58e3e">Nhân viên</span> hỗ trợ</h2>
+			<p>Sinh viên liên hệ với nhân viên để được tư vấn, giải đáp thắc mắc về vấn đề ở nội trú</p>
+			<a href="#" class="viewall">Xem thêm</a>
+		</div>
+
+		<div class="nhanvien-slider">
+			<div class="slide-item">				
+				<div class="item-container">
+					<div class="img-container">
+                        <img src="pic/nam.png" />
+					</div>
+					<div class="name">Nguyễn Quang Bảo</div>
+					<div class="chucvu">					
+						Quản lý KTX K1 + K2
+					</div>
+					<div class="phone">0914278962</div>
+				</div>
+			</div>
+
+			<div class="slide-item">				
+				<div class="item-container">
+					<div class="img-container">
+                        <img src="pic/nam.png" />
+					</div>
+					<div class="name">Phan Văn Ngữ</div>
+					<div class="chucvu">					
+						Quản lý KTX K3 + K4
+					</div>
+					<div class="phone">0963517911</div>
+				</div>
+			</div>
+			<div class="slide-item">				
+				<div class="item-container">
+					<div class="img-container">
+                        <img src="pic/nu.png" />
+					</div>
+					<div class="name">Nguyễn Thị Thắm</div>
+					<div class="chucvu">					
+						Quản lý KTX K5
+					</div>
+					<div class="phone">0984706048</div>
+				</div>
+			</div>
+			<div class="slide-item">				
+				<div class="item-container">
+					<div class="img-container">
+                        <img src="pic/nu.png" />
+					</div>
+					<div class="name">Nguyễn Thị Lệ</div>
+					<div class="chucvu">Quản lý KTX K7</div>				
+					<div class="phone">0982463927</div>
+				</div>
+			</div>
+			<div class="slide-item">				
+				<div class="item-container">
+					<div class="img-container">
+                        <img src="pic/nu.png" />
+					</div>
+					<div class="name">Trần Thị Thủy</div>
+					<div class="chucvu">					
+						Quản lý KTX K8
+					</div>
+					<div class="phone">0905833394</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- GG Map -->
+	<div id="map"></div>
+	<!-- back to top -->
+	<div id="backtotop" title="Lên đầu trang">
+		<i class="fas fa-chevron-up"></i>
+	</div>
+
+	<!-- Script -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/index-js.js"></script>
+    <script src="js/slick/jquery-3.4.0.min.js"></script>
+    <script src="js/slick/slick.min.js"></script>
+	<script src="js/slide-js.js"></script>
+	<script src="js/backtotopjquery.js"></script>
+
+   <!-- Link js của giới thiệu khu -->
+    <script type="text/javascript">
+		    $(document).ready(function(){
+			    $('.gioithieukhu-slider').slick({
+				    dots: true,
+				    infinite: true,
+				    slidesToShow: 3,
+				    slidesToScroll: 1,
+				    autoplay: true,
+				    autoplaySpeed: 2000,
+				    speed: 2000,
+				    arrows: false
+			    });
+		    });		
+	 </script>
+	<!-- Link js của nhân viên -->
+	<script type="text/javascript" src="js/slick/jquery-3.4.0.min.js"></script>
+	<script type="text/javascript" src="js/slick/slick.min.js"></script>
+	<script type="text/javascript">
+			$(document).ready(function(){
+				$('.nhanvien-slider').slick({
+					dots: false,
+					infinite: false,
+					slidesToShow: 4,
+					slidesToScroll: 1,
+					autoplay: false,
+					autoplaySpeed: 2000,
+				
+				});
+			});		
+	</script>
+
+	<!-- JS của gg map -->
+	<script>
+    function initMap(){
+      // Tuỳ chỉnh khoảng cách zoom, vị trí căn chỉnh của bản đồ
+      var options = {
+        zoom:16,
+        center:{lat:12.268220,lng:109.203079}
+      }
+
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+      // Đánh dấu khi click trên bản đồ
+      // google.maps.event.addListener(map, 'click', function(event){
+      //   // Đánh dấu
+      //   addMarker({coords:event.latLng});
+      // });
+
+      /*
+      // Add marker
+      var marker = new google.maps.Marker({
+        position:{lat:42.4668,lng:-70.9495},
+        map:map,
+        icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      });
+
+      var infoWindow = new google.maps.InfoWindow({
+        content:'<h1>Lynn MA</h1>'
+      });
+
+      marker.addListener('click', function(){
+        infoWindow.open(map, marker);
+      });
+      */
+
+      // Array of markers
+      var markers = [
+        {
+          coords:{lat:12.2682434,lng:109.2021695},
+          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          content:'<h4>Trường ĐH Nha Trang</h4>'
+        },
+        {
+          coords:{lat:12.269663,lng:109.202518},
+          content:'<h4>KTX K1</h4>'
+        },
+
+        {
+          coords:{lat:12.269427,lng:109.202199},
+          content:'<h4>KTX K2</h4>'
+        },
+
+        {
+          coords:{lat:12.269131,lng:109.202142},
+          content:'<h4>KTX K3</h4>'
+        },
+        
+        {
+          coords:{lat:12.268885,lng:109.202189},
+          content:'<h4>KTX K4</h4>'
+        },
+
+        
+        {
+          coords:{lat:12.269028,lng:109.201464},
+          content:'<h4>KTX K5</h4>'
+        },
+        {
+          coords:{lat:12.267627,lng:109.204267},
+          content:'<h4>KTX K6</h4>'
+        },
+
+        {
+          coords:{lat:12.267825,lng:109.199218},
+          content:'<h4>KTX K7</h4>'
+        },
+
+        {
+          coords:{lat:12.269755,lng:109.202161},
+          content:'<h4>KTX K8</h4>'
+        }
+
+      ];
+
+      // Lặp qua mảng markers
+      for(var i = 0;i < markers.length;i++){
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          //icon:props.iconImage
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+    }
+  </script>
+  <!-- API KEY -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdMiNcq1hzGcOlpMGZtI5VnylE5cnFgQw&callback=initMap"
+async defer></script>
+    </form>
+</body>
+</html>
