@@ -1,0 +1,151 @@
+﻿/*chinh margin-bottom cho h2 vs p trong .title*/
+.gioithieukhu .title h2 {
+	margin-bottom: 5px;
+}
+
+.gioithieukhu .title p {
+	margin-bottom: 10px;
+}
+
+.gioithieukhu {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 100px 0;
+  background: #eee;
+}
+
+.gioithieukhu .title {
+    box-sizing: border-box;
+    width:1300px;
+    margin: 0 auto;
+    padding: 0px 15px 40px 15px;
+    color: #3a3d45;
+    position: relative;
+}
+
+.gioithieukhu .title .viewall {
+    position: absolute;
+	top: 0;
+	color: #3a3d45;
+	border-radius: 2px;
+	font-size: 12px;
+	right: 15px;
+	padding: 5px 10px;
+	text-decoration: none;
+	transition: .3s all;
+	border: 1px solid #3a3d45;
+}
+
+.gioithieukhu .title .viewall:hover {
+	color: #fff;
+	background: #3a3d45;
+}
+
+.gioithieukhu .slide-item{
+  padding: 0 12px;
+  outline: none;
+}
+
+.gioithieukhu .gioithieukhu-slider {
+  /*position: absolute;*/
+  width: 1300px;
+  margin:0 auto;
+  /*left: 2%;*/
+  /*bottom: 16%;*/
+  z-index: 1;
+}
+
+.gioithieukhu .gioithieukhu-slider .item-container{
+  font-size: 18px;
+  background: #eee;
+  transform: scale(0.97);
+  transition: .3s all;
+
+  height: auto; /*thuộc tính  height: 100% trong swiper.min.css làm cho item đầu bị cao hơn 1 chút*/
+}
+
+.gioithieukhu .gioithieukhu-slider .item-container:hover {
+	transform: scale(1);
+}
+
+.gioithieukhu .gioithieukhu-slider .item-container .img-box {
+  height: 275.55px;
+}
+
+.gioithieukhu .gioithieukhu-slider .item-container img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+
+}
+
+
+/*CSS cho phần info*/
+
+.gioithieukhu .info {
+  display: flex;
+  padding: 8% 8%;
+
+}
+
+.gioithieukhu .info .detail {
+
+}
+
+.gioithieukhu .info .detail a {
+  text-decoration: none;
+  padding: 12px 18px;
+  background: #00486c;
+  color: #fff;
+  display: inline-block;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: .3s all;
+}
+
+.gioithieukhu .info .detail a:hover {
+	background: #002639;
+}
+
+.gioithieukhu .info .price {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.gioithieukhu .layout {
+  z-index: 0;
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  bottom: 0;
+  background: #00486c;
+}
+
+/*CSS cho dot*/
+.slick-dots {
+  left: 50%;
+  bottom: -10% !important;
+  transform: translate(-50%,0);
+}
+
+.slick-dots li  {
+	width: 8px !important;
+	height: 8px !important;
+	background: #fff !important;
+	border-radius: 50%;
+	margin: 0 3px !important;
+	opacity: .2;
+}
+
+.slick-dots li button {
+	display: none !important;
+}
+.slick-dots .slick-active {
+  background: #fff !important;
+  opacity: 1;
+}

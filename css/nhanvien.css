@@ -1,0 +1,159 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
+.nhanvien-container {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	background: #fff;
+	/*position: relative;*/
+}
+/*Slider team*/
+.nhanvien-slider {
+	padding: 0px 50px;
+
+}
+
+/*CSS cho phan title*/
+.nhanvien-container .title {
+	width: 1300px;
+	box-sizing: border-box;
+	padding: 0 15px 40px 15px;
+	margin: 0 auto;
+	position: relative;
+	color: #3a3d45;
+}
+
+.nhanvien-container .title h2 {
+	margin: 0 0 5px 0;
+	text-transform: uppercase;
+}
+
+.nhanvien-container .title p {
+	margin: 0 0 10px 0;
+}
+/**/
+
+.nhanvien-container .title .viewall {
+	padding: 5px 10px;
+    border: 1px solid #3a3d45;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 12px;
+    color: #3a3d45;
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    top: 0;
+    transition: .3s all;
+}
+
+.nhanvien-container .title .viewall:hover {
+	color: #fff;
+	background: #3a3d45;
+}
+/**/
+
+.nhanvien-slider .slide-item {
+	outline: none;
+}
+.nhanvien-slider .slide-item .item-container {
+	text-align: center;
+	margin: 0 15px;
+	border: 1px solid #e9ebee;
+    background: #00486c;
+    color: #fff;
+    font-size:20px;
+    transition: all .3s;
+}
+
+.nhanvien-slider .slide-item .item-container:hover{
+    box-shadow: 0px 0px 10px #bbb;
+    cursor: pointer;
+
+}
+.nhanvien-slider .slide-item .item-container:hover  .khunganh {
+    border-color: #b58e3e;
+}
+
+
+.nhanvien-slider .img-container {
+	/*width: 250px;*/
+	/*height: 200px;*/
+	height: 300px;
+	margin: 0 auto;
+    /*padding: 5px;*/
+    position: relative;
+}
+
+.nhanvien-slider .img-container .khunganh {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px #ddd solid;
+    transform: scale(.95,.95); 
+    transition: all .3s;
+}
+
+.nhanvien-slider .img-container img {
+	width: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	object-fit: cover;
+	/*border-radius: 50%;*/
+}
+
+.nhanvien-slider .name {
+	/*font-size: 16px;*/
+	color: yellow;
+	/*font-weight: bold;*/
+	margin-top: 10px;
+}
+
+.nhanvien-slider .chucvu {
+	/*font-size: 16px;*/
+	/*font-weight: bold;*/
+	/*color: #00486c;*/
+}
+
+.nhanvien-slider .phone {
+	/*font-size: 16px;*/
+    margin-bottom: 10px;
+
+}
+
+.nhanvien-slider .slick-arrow {
+	
+	/*font-size: 16px;*/
+}
+
+.nhanvien-slider .slick-prev, .nhanvien-slider .slick-next {
+    width: 40px;
+    height: 80px;
+    background: rgba(0,72,108,.8);
+}
+
+.nhanvien-slider .slick-prev:hover, .nhanvien-slider .slick-next:hover {
+    background: rgba(0,72,108,1);
+}
+.nhanvien-slider .slick-prev {
+	left: 26px;
+    z-index: 1;
+}
+
+.nhanvien-slider .slick-next {
+	right: 23px;
+}
+
+.nhanvien-slider .slick-prev:before {
+	content: '\f053';
+	font-family: "fontAwesome";
+	font-size: 25px;
+}
+
+.nhanvien-slider .slick-next:before {
+	content: '\f054';
+	font-family: "fontAwesome";
+	font-size: 25px;
+}
+.nhanvien-slider .slick-prev:before, .nhanvien-slider .slick-next:before {
+	color: #fff;
+    opacity: 1;
+}

@@ -1,0 +1,182 @@
+/*Chinh margin vs font size cho h tag vs p tag trong gioithieudichvu-container*/
+.gioithieudichvu .title h2, p {
+	margin: 0;
+}
+
+.gioithieudichvu .dichvu-container h4, p{
+	margin: 0;
+}
+
+.gioithieudichvu .title {
+	margin: 0 auto;
+	color: #3a3d45;
+
+}
+/*chinh margin-bottom cho h2 vs p trong .title*/
+.gioithieudichvu .title h2 {
+	margin-bottom: 5px;
+}
+
+.gioithieudichvu .title p {
+	margin-bottom: 10px;
+}
+
+.gioithieudichvu .title h4 {
+	font-size: 21px;
+}
+.gioithieudichvu .info-detail {
+	font-size: 15px;
+	
+}
+/*--------------------------------*/
+.gioithieudichvu {
+	width: 100%;
+	/*height: 100vh;*/
+	padding-top: 100px; 
+	
+}
+
+.gioithieudichvu .title {
+	position: relative;
+}
+
+.gioithieudichvu .title .viewall {
+	position: absolute;
+	top: 0;
+	color: #3a3d45;
+	border-radius: 2px;
+	font-size: 12px;
+	right: 15px;
+	padding: 5px 10px;
+	text-decoration: none;
+	transition: .3s all;
+	border: 1px solid #3a3d45;
+}
+
+.gioithieudichvu .title .viewall:hover {
+	color: #fff;
+	background: #3a3d45;
+}
+
+.gioithieudichvu .dichvu-container {
+	display: flex;
+	height: 80vh;
+	position: relative;
+}
+
+.gioithieudichvu .dichvu-container::before {
+	content: '';
+	/*width: 10px;*/
+	/*height: 10px;*/
+	border-top: 20px solid #fff;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	position: absolute;
+	z-index: 1;
+	top: -5px;
+	left: 50%;
+	transform: translate(-50%,0);
+
+}
+
+
+.gioithieudichvu .dichvu-container .item {
+	/*flex-grow: 1;*/
+	background-position: center !important;
+	background-size: cover !important;
+	width: 23%;
+	position: relative;
+	overflow: hidden;
+	transition: .5s all;
+	cursor: pointer;
+	user-select: none;
+}
+
+
+.gioithieudichvu .dichvu-container .item:hover {
+	/*flex-grow: 1.4;*/
+	width: 50%;
+}
+
+.gioithieudichvu .dichvu-container .item:hover .info {
+	opacity: 1;
+	bottom: 0;
+	transform: translate(0,0);
+}
+
+.gioithieudichvu .dichvu-container .item:hover .layout {
+	opacity: 0;
+}
+
+.gioithieudichvu .dichvu-container .more {
+	/*flex-grow: 1;*/
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*width: 170px;*/
+	width: 8%;
+	position: relative;
+	background: #002639;
+	transition: .5s all;
+}
+
+.gioithieudichvu .dichvu-container .more:hover {
+	width: 40%;
+}
+
+.gioithieudichvu .dichvu-container .more:hover h1 {
+	opacity: 0;
+}
+
+.gioithieudichvu .dichvu-container .more:hover .layout-more {
+	opacity: 1;
+}
+
+.gioithieudichvu .dichvu-container .info {
+	background-color: rgba(0,38,57,.5);
+	box-sizing: border-box;
+	padding: 20px 30px;
+	position: absolute;
+	color: #fff;
+	width: 100%;
+	bottom: 0;
+	transform: translate(0,100%);
+	opacity: 1;
+	transition: .5s all;
+}
+
+.gioithieudichvu .dichvu-container .info h4 {
+	font-size: 21px;
+}
+
+.gioithieudichvu .dichvu-container .layout {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,72,108,.8);
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: .3s all;
+	/*z-index: 0;*/
+	font-size: 21px;
+}
+
+.gioithieudichvu .dichvu-container .layout-more {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 100;
+	font-size: 18px;
+	text-decoration: none;
+	opacity: 0;
+	transition: .3s all;
+}
